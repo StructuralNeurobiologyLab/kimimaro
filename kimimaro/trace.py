@@ -83,10 +83,10 @@ def trace(
     abort and move onto the next label.
   root: If you want to force the root to be a particular voxel, you can
     specify it here.
-  voxel_graph: a connection graph that defines permissible 
+  voxel_graph: a connection graph that defines permissible
     directions of motion between voxels. This is useful for
     dealing with self-touches. The graph is defined by the
-    conventions used in cc3d.voxel_connectivity_graph 
+    conventions used in cc3d.voxel_connectivity_graph
     (https://github.com/seung-lab/connected-components-3d/blob/3.2.0/cc3d_graphs.hpp#L73-L92)
 
   Based on the algorithm by:
@@ -136,8 +136,8 @@ def trace(
   # PDRF: Penalized Distance from Root Field
   DBF = kimimaro.skeletontricks.zero2inf(DBF) # DBF[ DBF == 0 ] = np.inf
   DAF = dijkstra3d.euclidean_distance_field(
-    labels, root, 
-    anisotropy=anisotropy, 
+    labels, root,
+    anisotropy=anisotropy,
     free_space_radius=free_space_radius,
     voxel_graph=voxel_graph,
   )
@@ -222,7 +222,7 @@ def compute_paths(
       # and finishes vs exploring from the neighborhood of the entire zero
       # weighted path
       path = dijkstra3d.dijkstra(
-        parents, target, root, 
+        parents, target, root,
         bidirectional=soma_mode, voxel_graph=voxel_graph
       )
     else:
